@@ -10,8 +10,30 @@
     <height>724</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>.AppleSystemUIFont</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    background-color: #555555;
+    color: #ffffff;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+QPushButton:hover {
+    background-color: #666666;
+}
+
+QPushButton:pressed {
+    background-color: #444444;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGraphicsView" name="graphicsView">
@@ -39,6 +61,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string>Dodaj zdjęcie</string>
     </property>
@@ -47,36 +72,29 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>90</y>
-      <width>131</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Dodaj naklejkę</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
       <y>130</y>
       <width>131</width>
       <height>29</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
-     <string>Filtry</string>
+     <string>Dodaj naklejkę</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>170</y>
+      <y>620</y>
       <width>131</width>
       <height>29</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Zapisz kolaż </string>
@@ -88,22 +106,344 @@
       <x>845</x>
       <y>30</y>
       <width>191</width>
-      <height>631</height>
+      <height>231</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>610</y>
-      <width>100</width>
+      <x>59</x>
+      <y>90</y>
+      <width>131</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
      <string>Usuń zdjęcie</string>
     </property>
+   </widget>
+   <widget class="QListWidget" name="listaWarstw">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>40</y>
+      <width>161</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="boxFiltry">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>200</y>
+      <width>161</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Filtry</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="napisSzary">
+       <property name="text">
+        <string>Skala szarości</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="sliderSzary">
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="napisJasnosc">
+       <property name="text">
+        <string>Jasność</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="sliderJasnosc">
+       <property name="minimum">
+        <number>-50</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="napisKontrast">
+       <property name="text">
+        <string>Kontrast</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="sliderKontrast">
+       <property name="minimum">
+        <number>-50</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="napisNegatyw">
+       <property name="text">
+        <string>Negatyw</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="sliderNegatyw">
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="napisSepia">
+       <property name="text">
+        <string>Sepia</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="sliderSepia">
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="przyciskUsunFiltry">
+       <property name="text">
+        <string>Usuń filtry</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QComboBox" name="comboKsztalt">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>280</y>
+      <width>191</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Owal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prostokąt</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Romb</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnWytnij">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>350</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wytnij</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QSlider" name="sliderRozmiarWyciecia">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>320</y>
+      <width>160</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>10</number>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>55</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listaNaklejek">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>400</y>
+      <width>231</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>64</width>
+      <height>64</height>
+     </size>
+    </property>
+    <property name="movement">
+     <enum>QListView::Movement::Static</enum>
+    </property>
+    <property name="resizeMode">
+     <enum>QListView::ResizeMode::Adjust</enum>
+    </property>
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::ViewMode::IconMode</enum>
+    </property>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/anerma-sunflower-892465_640.png</normaloff>:/naklejki/anerma-sunflower-892465_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/brightpixelsstudio-watercolor-butterfly-9293653_640.png</normaloff>:/naklejki/brightpixelsstudio-watercolor-butterfly-9293653_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/clker-free-vector-images-banana-42793_640.png</normaloff>:/naklejki/clker-free-vector-images-banana-42793_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/clker-free-vector-images-sun-34485_640.png</normaloff>:/naklejki/clker-free-vector-images-sun-34485_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/designbydessie-love-9024670_640.png</normaloff>:/naklejki/designbydessie-love-9024670_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/humyay-flowers-7652496_640.png</normaloff>:/naklejki/humyay-flowers-7652496_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/openclipart-vectors-fashion-1295985_640.png</normaloff>:/naklejki/openclipart-vectors-fashion-1295985_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/openclipart-vectors-star-158502_640.png</normaloff>:/naklejki/openclipart-vectors-star-158502_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/openclipart-vectors-zebra-152604_640.png</normaloff>:/naklejki/openclipart-vectors-zebra-152604_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/ruzaindo-coconut-7751862_640.png</normaloff>:/naklejki/ruzaindo-coconut-7751862_640.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="zasoby.qrc">
+       <normaloff>:/naklejki/ruzaindo-coconut-7876154_640.png</normaloff>:/naklejki/ruzaindo-coconut-7876154_640.png</iconset>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -112,12 +452,14 @@
      <x>0</x>
      <y>0</y>
      <width>1092</width>
-     <height>24</height>
+     <height>37</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="zasoby.qrc"/>
+ </resources>
  <connections/>
 </ui>
