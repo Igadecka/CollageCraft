@@ -44,6 +44,7 @@ private slots:
     void zastosujWyciecie(); // Reaguje na przycisk i ucina piksele
     void ukryjPodgladWyciecia();
     void dodajNaklejke(QListWidgetItem *item);
+    void aktualizujWygladElementu(QGraphicsPixmapItem *wybranyObiekt);
 
 
 
